@@ -1,6 +1,6 @@
-import { AccountService } from './account/account.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './account/account.service';
 import { BasketService } from './basket/basket.service';
 import { IPagination } from './shared/models/pagination';
 import { IProduct } from './shared/models/product';
@@ -21,14 +21,12 @@ export class AppComponent implements OnInit {
   }
 
   loadCurrentUser() {
-    const token = localStorage.getItem("token");
-
-      this.accountService.loadCurrentUser(token).subscribe(() => {
-        console.log("loaded user");
-      }, error => {
-        console.log(error);
-      })
-
+    const token = localStorage.getItem('token');
+    this.accountService.loadCurrentUser(token).subscribe(() => {
+      console.log('loaded user');
+    }, error => {
+      console.log(error);
+    })
   }
 
   loadBasket() {
